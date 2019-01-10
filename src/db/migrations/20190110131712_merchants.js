@@ -2,9 +2,9 @@
 exports.up = knex => {
   return knex.schema.createTable('merchants', function(table) {
     table
-      .increments('primaryId')
-      .notNullable()
-      .unsigned()
+      .uuid('id')
+      .notNull()
+      .primary()
 
     table.string('name').notNullable()
 
@@ -28,7 +28,7 @@ exports.up = knex => {
     table.float('avgAmount').notNullable()
 
     table.float('lon')
-    
+
     table.float('lat')
   })
 }
