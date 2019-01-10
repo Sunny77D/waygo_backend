@@ -3,29 +3,28 @@ exports.up = knex => {
   return knex.schema.createTable('merchants', function(table) {
     table
       .uuid('id')
-      .notNull()
+      .notNullable()
       .primary()
 
-    table.string('name').notNullable()
+    table.string('name')
 
-    table.string('category').notNullable()
+    table.string('category')
 
-    table.string('streetNum').notNullable()
+    table.string('streetNum')
 
-    table.string('streetName').notNullable()
+    table.string('streetName')
 
-    table.string('city').notNullable()
+    table.string('city')
 
-    table.string('state').notNullable()
+    table.string('state')
 
-    table.string('zip').notNullable()
+    table.string('zip')
 
     table
       .integer('numTransactions')
-      .notNullable()
       .unsigned()
 
-    table.float('avgAmount').notNullable()
+    table.float('avgAmount')
 
     table.float('lon')
 
