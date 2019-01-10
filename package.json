@@ -12,6 +12,7 @@
     "dotenv": "^6.0.0",
     "eslint-plugin-react": "^7.11.1",
     "express": "^4.16.3",
+    "geolib": "^2.0.24",
     "graphql": "^0.13.2",
     "graphql-iso-date": "^3.5.0",
     "graphql-tag": "^2.9.1",
