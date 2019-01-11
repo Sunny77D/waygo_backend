@@ -7,7 +7,12 @@ const merchantsResolver = async (obj, input) => {
     .where('category', input.category)
   // code remaining for closest distance
   const distanceAdded = possibleMerchants.map(merchant => {
-      const address = merchant.streetNum + " " + merchant.streetName + ", " + merchant.city + ", " + merchant.state + " " + merchant.zip
+      var address;
+      if (!merchant.streetNum || !merchant.streetName) {
+        address = merchant.city + ", " + merchant.state + " " + merchant.zip
+      } else {
+        address = merchant.streetNum + " " + merchant.streetName + ", " + merchant.city + ", " + merchant.state + " " + merchant.zip
+      }
       const distance = geolib.getDistance({latitude: merchant.lat, longitude: merchant.lon},{latitude: parseFloat(input.lat), longitude: parseFloat(input.lon)}) / 1608
       return {
         id: merchant.id,
