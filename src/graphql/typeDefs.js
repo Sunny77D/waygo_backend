@@ -5,6 +5,7 @@ module.exports = gql`
     merchant(id: ID!): Merchant!
     merchants(category: String!, lon: String!, lat: String!, walking: Boolean!): [Merchant]
     itinerary: [Itinerary]
+    itineraryById(id: ID!): Itinerary!
   }
   type Mutation {
     populate: PopulateReturn!
