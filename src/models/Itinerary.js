@@ -1,4 +1,5 @@
-const { Model } = require('objection')
+const { Model, ManyToManyRelation } = require('objection')
+
 const uuidv4 = require('uuid/v4')
 
 class Itinerary extends Model {
@@ -10,6 +11,24 @@ class Itinerary extends Model {
   }
   static get idColumn() {
     return 'id'
+  }
+  static get relationMappings() {
+    const Merchant = require('./Merchant')
+
+    return {
+      merchants: {
+        relation: ManyToManyRelation,
+        modelClass: Merchant,
+        join: {
+          from: 'itineraries.id',
+          through: {
+            from: 'merchants_itineraries.itineraryId',
+            to: 'merchants_itineraries.merchantId',
+          },
+          to: 'merchants.id',
+        },
+      },
+    }
   }
 }
 

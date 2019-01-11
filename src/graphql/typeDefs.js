@@ -22,8 +22,8 @@ module.exports = gql`
     id: ID!
     name: String!
     merchants: [Merchant]
-    Date: String
-    Budget: Float!
+    date: String
+    budget: Float!
   }
   type PopulateReturn {
     success: Boolean
