@@ -1,7 +1,7 @@
 const typeDefs = require('./typeDefs')
 const { makeExecutableSchema } = require('graphql-tools')
 const merge = require('lodash.merge')
-const mutations = require('./mutation')
+const mutations = require('./Mutation')
 const types = require('./types')
 
 const protoResolvers = [types, mutations]
